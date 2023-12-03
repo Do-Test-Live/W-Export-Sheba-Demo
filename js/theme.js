@@ -68,7 +68,6 @@ let UomoHelpers = {
 function purecookieDismiss() {
   setCookie("purecookieDismiss", "1", 7), pureFadeOut("cookieConsentContainer")
 }
-
 function setCookie(e, o, i) {
   var t = "";
   if (i) {
@@ -1163,11 +1162,9 @@ function pureFadeOut(e) {
       new UomoSections.SwiperSlideshow();
       new UomoSections.ProductSingleMedia();
     }
-
     initCookieConsient() {
-      const purecookieDesc = "In order to provide you a personalized shopping experience, our site uses cookies. By continuing to use this site, you are agreeing to our cookie policy.",
+      const purecookieDesc = "Welcome to Export Sheba",
       purecookieButton = "Accept";
-
       function pureFadeIn(e, o) {
         var i = document.getElementById(e);
         i.style.opacity = 0, i.style.display = o || "block",
@@ -1198,7 +1195,6 @@ function pureFadeOut(e) {
 
       getCookie("purecookieDismiss") || (appendHtml(document.body, '<div class="cookieConsentContainer" id="cookieConsentContainer"><div class="cookieDesc"><p>' + purecookieDesc + '</p></div><div class="cookieButton"><a onClick="purecookieDismiss();">' + purecookieButton + "</a></div></div>"), pureFadeIn("cookieConsentContainer"))
     }
-
     initAccessories() {
       // Check if device is mobile on resize
       window.addEventListener('resize', function() {
