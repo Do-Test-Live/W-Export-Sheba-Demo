@@ -1775,7 +1775,7 @@ progress {
     float: left;
     padding-right: 0.5rem;
     color: #6c757d;
-    content: var(--bs-breadcrumb-divider, "https://uomo-html.flexkitux.com/") /* rtl: var(--bs-breadcrumb-divider, "/") */;
+    content: var(--bs-breadcrumb-divider, "https://JuteGlo-html.flexkitux.com/") /* rtl: var(--bs-breadcrumb-divider, "/") */;
 }
 
 .breadcrumb-item.active {
@@ -13555,24 +13555,24 @@ textarea.form-control-lg {
     color: #3b3b3b;
 }
 
-.progress_uomo {
+.progress_JuteGlo {
     height: 0.625rem;
     border-radius: 0.625rem;
     background-color: #e4e4e4;
     overflow: visible;
 }
 
-.progress_uomo_small {
+.progress_JuteGlo_small {
     height: 0.25rem;
 }
 
-.progress_uomo .progress-bar {
+.progress_JuteGlo .progress-bar {
     position: relative;
     border-radius: 0.625rem;
     overflow: visible;
 }
 
-.progress_uomo .progress-bar::before {
+.progress_JuteGlo .progress-bar::before {
     content: attr(aria-valuenow);
     display: block;
     position: absolute;
