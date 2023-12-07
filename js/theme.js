@@ -2,10 +2,10 @@
 // eslint-disable-next-line no-undef
 var $ = jQuery.noConflict();
 
-let UomoSections = {};
-let UomoElements = {};
+let JuteGloSections = {};
+let JuteGloElements = {};
 
-let UomoSelectors = {
+let JuteGloSelectors = {
   pageBackDropActiveClass: 'page-overlay_visible',
   quantityControl: '.qty-control',
   scrollToTopId: 'scrollTop',
@@ -16,7 +16,7 @@ let UomoSelectors = {
 }
 
 // Utility functions
-let UomoHelpers = {
+let JuteGloHelpers = {
   isMobile: false,
   sideStkEl: {},
 
@@ -37,16 +37,16 @@ let UomoHelpers = {
   },
 
   showPageBackdrop: () => {
-    UomoSelectors.$pageBackDrop && UomoSelectors.$pageBackDrop.classList.add(UomoSelectors.pageBackDropActiveClass);
+    JuteGloSelectors.$pageBackDrop && JuteGloSelectors.$pageBackDrop.classList.add(JuteGloSelectors.pageBackDropActiveClass);
     document.body.classList.add('overflow-hidden');
-    document.body.style.paddingRight = UomoSelectors.scrollWidth;
+    document.body.style.paddingRight = JuteGloSelectors.scrollWidth;
     document.querySelectorAll('.header_sticky, .footer-mobile').forEach(element => {
-      element.style.borderRight = UomoSelectors.scrollWidth + ' solid transparent';
+      element.style.borderRight = JuteGloSelectors.scrollWidth + ' solid transparent';
     });
   },
 
   hidePageBackdrop: () => {
-    UomoSelectors.$pageBackDrop && UomoSelectors.$pageBackDrop.classList.remove(UomoSelectors.pageBackDropActiveClass);
+    JuteGloSelectors.$pageBackDrop && JuteGloSelectors.$pageBackDrop.classList.remove(JuteGloSelectors.pageBackDropActiveClass);
     document.body.classList.remove('overflow-hidden');
     document.body.style.paddingRight = '';
     document.querySelectorAll('.header_sticky, .footer-mobile').forEach(element => {
@@ -55,8 +55,8 @@ let UomoHelpers = {
   },
 
   hideHoverComponents: () => {
-    document.querySelectorAll(UomoSelectors.jsContentVisible).forEach( el => {
-      el.classList.remove(UomoSelectors.jsContentVisible.substring(1));
+    document.querySelectorAll(JuteGloSelectors.jsContentVisible).forEach( el => {
+      el.classList.remove(JuteGloSelectors.jsContentVisible.substring(1));
     });
   },
 
@@ -92,9 +92,9 @@ function pureFadeOut(e) {
   const scrollBarWidth = window.innerWidth - document.body.clientWidth
 
   // Components appear after click
-  UomoElements.JsHoverContent = (function () {
+  JuteGloElements.JsHoverContent = (function () {
     function JsHoverContent () {
-      const visibleClass = UomoSelectors.jsContentVisible.substring(1);
+      const visibleClass = JuteGloSelectors.jsContentVisible.substring(1);
 
       document.querySelectorAll('.js-hover__open').forEach(el => {
         el.addEventListener('click', (e) => {
@@ -105,15 +105,15 @@ function pureFadeOut(e) {
             $container.classList.remove(visibleClass);
             // e.stopPropagation();
           } else {
-            UomoHelpers.hideHoverComponents();
+            JuteGloHelpers.hideHoverComponents();
             $container.classList.add(visibleClass);
           }
         });
       });
 
       document.addEventListener('click', (e) => {
-        if (!e.target.closest(UomoSelectors.jsContentVisible)) {
-          UomoHelpers.hideHoverComponents();
+        if (!e.target.closest(JuteGloSelectors.jsContentVisible)) {
+          JuteGloHelpers.hideHoverComponents();
         }
       });
     }
@@ -122,9 +122,9 @@ function pureFadeOut(e) {
     return JsHoverContent;
   })();
 
-  UomoElements.QtyControl = (function () {
+  JuteGloElements.QtyControl = (function () {
     function QtyControl () {
-      document.querySelectorAll(UomoSelectors.quantityControl).forEach(function($qty) {
+      document.querySelectorAll(JuteGloSelectors.quantityControl).forEach(function($qty) {
         if ($qty.classList.contains('qty-initialized')) {
           return;
         }
@@ -147,9 +147,9 @@ function pureFadeOut(e) {
     return QtyControl;
   })();
 
-  UomoElements.ScrollToTop = (function () {
+  JuteGloElements.ScrollToTop = (function () {
     function ScrollToTop () {
-      const $scrollTop = document.getElementById(UomoSelectors.scrollToTopId);
+      const $scrollTop = document.getElementById(JuteGloSelectors.scrollToTopId);
 
       if (!$scrollTop) {
         return;
@@ -178,7 +178,7 @@ function pureFadeOut(e) {
     return ScrollToTop;
   })();
 
-  UomoElements.Search = (function() {
+  JuteGloElements.Search = (function() {
     function Search() {
       // Declare variables
       this.selectors = {
@@ -287,7 +287,7 @@ function pureFadeOut(e) {
         })
       },
 
-      _handleAjaxSearch: UomoHelpers.debounce((event, _this) => {
+      _handleAjaxSearch: JuteGloHelpers.debounce((event, _this) => {
         const $form = event.target.closest(_this.selectors.container);
         const method = $form ? $form.method : 'GET';
         const url = _this.selectors.ajaxURL;
@@ -323,7 +323,7 @@ function pureFadeOut(e) {
   })();
 
   // Aside Popup
-  UomoElements.Aside = (function () {
+  JuteGloElements.Aside = (function () {
     function Aside () {
       this.selectors = {
         activator:    '.js-open-aside',
@@ -348,7 +348,7 @@ function pureFadeOut(e) {
             const targetElId = event.currentTarget.dataset.aside;
             const $targetAside = document.getElementById(targetElId);
 
-            UomoHelpers.showPageBackdrop();
+            JuteGloHelpers.showPageBackdrop();
             $targetAside && $targetAside.classList.add(_this.selectors.activeClass);
           });
         });
@@ -365,15 +365,15 @@ function pureFadeOut(e) {
       },
 
       _initBackDropClick() {
-        if (UomoSelectors.$pageBackDrop) {
-          UomoSelectors.$pageBackDrop.addEventListener('click', () => {
+        if (JuteGloSelectors.$pageBackDrop) {
+          JuteGloSelectors.$pageBackDrop.addEventListener('click', () => {
             this._closeAside();
           });
         }
       },
 
       _closeAside: function () {
-        UomoHelpers.hidePageBackdrop();
+        JuteGloHelpers.hidePageBackdrop();
         document.querySelectorAll('.' + this.selectors.activeClass).forEach( el => {
           el.classList.remove(this.selectors.activeClass);
         });
@@ -383,7 +383,7 @@ function pureFadeOut(e) {
     return Aside;
   })();
 
-  UomoElements.Countdown = (function () {
+  JuteGloElements.Countdown = (function () {
     function Countdown (container) {
       this.selectors = {
         element: '.js-countdown'
@@ -415,7 +415,7 @@ function pureFadeOut(e) {
     return Countdown;
   })();
 
-  UomoElements.ShopViewChange = (function () {
+  JuteGloElements.ShopViewChange = (function () {
     function ShopViewChange () {
       this.selectors = {
         element: '.js-cols-size',
@@ -463,7 +463,7 @@ function pureFadeOut(e) {
     return ShopViewChange;
   })();
 
-  UomoElements.Filters = (function () {
+  JuteGloElements.Filters = (function () {
     function Filters () {
       this.selectors = {
         element: '.js-filter',
@@ -499,7 +499,7 @@ function pureFadeOut(e) {
     return Filters;
   })();
 
-  UomoElements.StickyElement = (function () {
+  JuteGloElements.StickyElement = (function () {
     function StickyElement () {
       this.selectors = {
         element: '.side-sticky'
@@ -512,7 +512,7 @@ function pureFadeOut(e) {
 
     StickyElement.prototype = Object.assign({}, StickyElement.prototype, {
       _init: function () {
-        if (UomoHelpers.isMobile) {
+        if (JuteGloHelpers.isMobile) {
           return;
         }
 
@@ -521,14 +521,14 @@ function pureFadeOut(e) {
           const $target = $grid.offsetHeight > $sticky.offsetHeight ? $sticky : $grid;
 
           $target.lastKnownY = window.scrollY;
-          if (!UomoHelpers.sideStkEl.currentTop) {
-            UomoHelpers.sideStkEl.currentTop = 0;
+          if (!JuteGloHelpers.sideStkEl.currentTop) {
+            JuteGloHelpers.sideStkEl.currentTop = 0;
           } else {
             return;
           }
 
 
-          UomoHelpers.sideStkEl.initialTopOffset = parseInt(window.getComputedStyle($target).top);
+          JuteGloHelpers.sideStkEl.initialTopOffset = parseInt(window.getComputedStyle($target).top);
         });
 
         window.addEventListener('scroll', this._updateStatus);
@@ -542,20 +542,20 @@ function pureFadeOut(e) {
           const $target = $grid.offsetHeight > $sticky.offsetHeight ? $sticky : $grid;
 
           var bounds = $target.getBoundingClientRect(),
-              maxTop = bounds.top + window.scrollY - $target.offsetTop + UomoHelpers.sideStkEl.initialTopOffset,
+              maxTop = bounds.top + window.scrollY - $target.offsetTop + JuteGloHelpers.sideStkEl.initialTopOffset,
               minTop = $target.clientHeight - window.innerHeight + 30;
 
           if (window.scrollY < $target.lastKnownY) {
-            UomoHelpers.sideStkEl.currentTop -= window.scrollY - $target.lastKnownY;
+            JuteGloHelpers.sideStkEl.currentTop -= window.scrollY - $target.lastKnownY;
           } else {
-            UomoHelpers.sideStkEl.currentTop += $target.lastKnownY - window.scrollY;
+            JuteGloHelpers.sideStkEl.currentTop += $target.lastKnownY - window.scrollY;
           }
 
 
-          UomoHelpers.sideStkEl.currentTop = Math.min(Math.max(UomoHelpers.sideStkEl.currentTop, -minTop), maxTop, UomoHelpers.sideStkEl.initialTopOffset);
+          JuteGloHelpers.sideStkEl.currentTop = Math.min(Math.max(JuteGloHelpers.sideStkEl.currentTop, -minTop), maxTop, JuteGloHelpers.sideStkEl.initialTopOffset);
           $target.lastKnownY = window.scrollY;
 
-          $target.style.top = UomoHelpers.sideStkEl.currentTop + 'px';
+          $target.style.top = JuteGloHelpers.sideStkEl.currentTop + 'px';
         });
       }
     });
@@ -565,7 +565,7 @@ function pureFadeOut(e) {
   })();
 
   // Header Section
-  UomoSections.Header = (function () {
+  JuteGloSections.Header = (function () {
     function Header () {
       this.selectors = {
         header: '.header',
@@ -592,7 +592,7 @@ function pureFadeOut(e) {
 
     Header.prototype = Object.assign({}, Header.prototype, {
       _init: function () {
-        const headerClass = UomoHelpers.isMobile ? this.selectors.mobileHeader : this.selectors.header;
+        const headerClass = JuteGloHelpers.isMobile ? this.selectors.mobileHeader : this.selectors.header;
 
         this.lastScrollTop = 0;
         this.$header = document.querySelector(headerClass);
@@ -601,7 +601,7 @@ function pureFadeOut(e) {
           return;
         }
 
-        if (!UomoHelpers.isMobile) {
+        if (!JuteGloHelpers.isMobile) {
           this._initMenuPosition();
         } else {
           this._initMobileMenu();
@@ -625,8 +625,8 @@ function pureFadeOut(e) {
               $mobileDropdown.style.paddingRight = '';
             } else {
               document.body.classList.add(_this.selectors.mobileMenuActiveClass);
-              _this.$header.style.paddingRight = UomoSelectors.scrollWidth;
-              $mobileDropdown.style.paddingRight = UomoSelectors.scrollWidth;
+              _this.$header.style.paddingRight = JuteGloSelectors.scrollWidth;
+              $mobileDropdown.style.paddingRight = JuteGloSelectors.scrollWidth;
             }
           });
 
@@ -755,7 +755,7 @@ function pureFadeOut(e) {
   })();
 
   // Footer Section
-  UomoSections.Footer = (function () {
+  JuteGloSections.Footer = (function () {
     function Footer () {
       this.selectors = {
         footer: '.footer-mobile'
@@ -769,7 +769,7 @@ function pureFadeOut(e) {
 
     Footer.prototype = Object.assign({}, Footer.prototype, {
       _init: function() {
-        if (!this.$footer || !UomoHelpers.isMobile) {
+        if (!this.$footer || !JuteGloHelpers.isMobile) {
           return;
         }
 
@@ -794,7 +794,7 @@ function pureFadeOut(e) {
   })();
 
   // Customer login form
-  UomoSections.CustomerSideForm = (function () {
+  JuteGloSections.CustomerSideForm = (function () {
     function CustomerSideForm () {
       this.selectors = {
         aside:        '.aside.customer-forms',
@@ -833,7 +833,7 @@ function pureFadeOut(e) {
     return CustomerSideForm;
   })();
 
-  UomoSections.CartDrawer = (function () {
+  JuteGloSections.CartDrawer = (function () {
     function CartDrawer () {
       this.selectors = {
         aside:            '.aside.cart-drawer',
@@ -862,7 +862,7 @@ function pureFadeOut(e) {
 
     CartDrawer.prototype = Object.assign({}, CartDrawer.prototype, {
       _initCartItemsList: function () {
-        if (!UomoHelpers.isMobile) {
+        if (!JuteGloHelpers.isMobile) {
           return;
         }
 
@@ -895,7 +895,7 @@ function pureFadeOut(e) {
     return CartDrawer;
   })();
 
-  UomoSections.SwiperSlideshow = (function () {
+  JuteGloSections.SwiperSlideshow = (function () {
     function SwiperSlideshow () {
       this.selectors = {
         container: '.js-swiper-slider'
@@ -954,7 +954,7 @@ function pureFadeOut(e) {
     return SwiperSlideshow;
   })();
 
-  UomoSections.ProductSingleMedia = (function () {
+  JuteGloSections.ProductSingleMedia = (function () {
     function ProductSingleMedia () {
       this.selectors = {
         container: '.product-single__media'
@@ -1094,9 +1094,9 @@ function pureFadeOut(e) {
     return ProductSingleMedia;
   })();
 
-  UomoElements.StarRating = (function () {
+  JuteGloElements.StarRating = (function () {
     function StarRating () {
-      let stars = Array.from(document.querySelectorAll(UomoSelectors.starRatingControl));
+      let stars = Array.from(document.querySelectorAll(JuteGloSelectors.starRatingControl));
       let user_selected_star = document.querySelector('#form-input-rating');
 
       stars.forEach(star => {
@@ -1136,7 +1136,7 @@ function pureFadeOut(e) {
     return StarRating;
   })();
 
-  class Uomo {
+  class JuteGlo {
     constructor() {
       this.initCookieConsient();
       this.initAccessories();
@@ -1144,23 +1144,23 @@ function pureFadeOut(e) {
       this.initBsTooltips();
       this.initRangeSlider();
 
-      new UomoElements.JsHoverContent();
-      new UomoElements.Search();
-      new UomoElements.Aside();
-      new UomoElements.QtyControl();
-      new UomoElements.ScrollToTop();
-      new UomoElements.Countdown();
-      new UomoElements.ShopViewChange();
-      new UomoElements.Filters();
-      new UomoElements.StickyElement();
-      new UomoElements.StarRating();
+      new JuteGloElements.JsHoverContent();
+      new JuteGloElements.Search();
+      new JuteGloElements.Aside();
+      new JuteGloElements.QtyControl();
+      new JuteGloElements.ScrollToTop();
+      new JuteGloElements.Countdown();
+      new JuteGloElements.ShopViewChange();
+      new JuteGloElements.Filters();
+      new JuteGloElements.StickyElement();
+      new JuteGloElements.StarRating();
 
-      new UomoSections.Header();
-      new UomoSections.Footer();
-      new UomoSections.CustomerSideForm();
-      new UomoSections.CartDrawer();
-      new UomoSections.SwiperSlideshow();
-      new UomoSections.ProductSingleMedia();
+      new JuteGloSections.Header();
+      new JuteGloSections.Footer();
+      new JuteGloSections.CustomerSideForm();
+      new JuteGloSections.CartDrawer();
+      new JuteGloSections.SwiperSlideshow();
+      new JuteGloSections.ProductSingleMedia();
     }
     initCookieConsient() {
       const purecookieDesc = "Welcome to Export Sheba",
@@ -1198,7 +1198,7 @@ function pureFadeOut(e) {
     initAccessories() {
       // Check if device is mobile on resize
       window.addEventListener('resize', function() {
-        UomoHelpers.isMobile = UomoHelpers.updateDeviceSize();
+        JuteGloHelpers.isMobile = JuteGloHelpers.updateDeviceSize();
       });
     }
 
@@ -1296,8 +1296,8 @@ function pureFadeOut(e) {
 
   document.addEventListener("DOMContentLoaded", function() {
     // Init theme
-    UomoHelpers.isMobile = UomoHelpers.updateDeviceSize();
-    new Uomo();
+    JuteGloHelpers.isMobile = JuteGloHelpers.updateDeviceSize();
+    new JuteGlo();
   });
 
   $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function(e) {
