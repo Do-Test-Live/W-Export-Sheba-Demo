@@ -23,7 +23,7 @@
     <![endif]-->
 
     <!------------- Document Title -------------->
-    <title>Jute Site</title>
+    <title>Uomo | Modern & Multipurpose eCommerce HTML5 Template</title>
 
 </head>
 
@@ -224,16 +224,38 @@
 
         <div class="logo">
             <a href="index.html">
-                <img src="/images/logo.png" alt="JuteGlo" class="logo__image d-block"/>
+                <img src="/images/logo.png" alt="Uomo" class="logo__image d-block"/>
             </a>
         </div><!-- /.logo -->
 
-
+        <a href="#" class="header-tools__item header-tools__cart js-open-aside" data-aside="cartDrawer">
+            <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <use href="#icon_cart"/>
+            </svg>
+            <span class="cart-amount d-block position-absolute js-cart-items-count">3</span>
+        </a>
     </div><!-- /.container -->
 
     <nav class="header-mobile__navigation navigation d-flex flex-column w-100 position-absolute top-100 bg-body overflow-auto">
         <div class="container">
-          <!-- /.header-search -->
+            <form action="search.html" method="GET" class="search-field position-relative mt-4 mb-3">
+                <div class="position-relative">
+                    <input class="search-field__input w-100 border rounded-1" type="text" name="search-keyword"
+                           placeholder="Search products"/>
+                    <button class="btn-icon search-popup__submit pb-0 me-2" type="submit">
+                        <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <use href="#icon_search"/>
+                        </svg>
+                    </button>
+                    <button class="btn-icon btn-close-lg search-popup__reset pb-0 me-2" type="reset"></button>
+                </div>
+
+                <div class="position-absolute start-0 top-100 m-0 w-100">
+                    <div class="search-result"></div>
+                </div>
+            </form><!-- /.header-search -->
         </div><!-- /.container -->
 
         <div class="container">
@@ -248,7 +270,7 @@
                         </a>
                     </li>
                     <li class="navigation__item">
-                        <a href="about.html" class="navigation__link js-nav-right d-flex align-items-center">About Us
+                        <a href="#about" class="navigation__link js-nav-right d-flex align-items-center">About Us
                             <svg class="ms-auto" width="7" height="11" viewBox="0 0 7 11"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <use href="#icon_next_sm"/>
@@ -258,26 +280,34 @@
                     </li>
 
                     <li class="navigation__item">
-                        <a href="products.html" class="navigation__link js-nav-right d-flex align-items-center">Products
+                        <a href="#product" class="navigation__link js-nav-right d-flex align-items-center">Products
                             <svg class="ms-auto" width="7" height="11" viewBox="0 0 7 11"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <use href="#icon_next_sm"/>
                             </svg>
                         </a>
                         <div class="sub-menu position-absolute top-0 start-100 w-100 d-none">
-                            <a href="products.html"
+                            <a href="#product"
                                class="navigation__link js-nav-left d-flex align-items-center border-bottom mb-2">
                                 <svg class="me-2" width="7" height="11" viewBox="0 0 7 11"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <use href="#icon_prev_sm"/>
                                 </svg>
                                 Products</a>
+                            <ul class="list-unstyled">
+                                <li class="sub-menu__item"><a href="#collections-tab-2" class="menu-link menu-link_us-s">Promotional Jute
+                                    Bags</a></li>
+                                <li class="sub-menu__item"><a href="#collections-tab-3" class="menu-link menu-link_us-s">Bangladeshi Jute
+                                    Bags</a></li>
+                                <li class="sub-menu__item"><a href="#collections-tab-4" class="menu-link menu-link_us-s">Jute Fabrics</a></li>
+                                <li class="sub-menu__item"><a href="#product" class="menu-link menu-link_us-s">Jute Yarn</a></li>
+                            </ul>
 
                         </div>
                     </li>
 
                     <li class="navigation__item">
-                        <a href="faq.html" class="navigation__link js-nav-right d-flex align-items-center">Faq
+                        <a href="#faq" class="navigation__link js-nav-right d-flex align-items-center">Faq
                             <svg class="ms-auto" width="7" height="11" viewBox="0 0 7 11"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <use href="#icon_next_sm"/>
@@ -294,11 +324,35 @@
         </div><!-- /.container -->
 
         <div class="border-top mt-auto pb-2">
-       
+            <div class="customer-links container mt-4 mb-2 pb-1">
+                <svg class="d-inline-block align-middle" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <use href="#icon_user"/>
+                </svg>
+                <span class="d-inline-block ms-2 text-uppercase align-middle fw-medium">My Account</span>
+            </div>
 
+            <div class="container d-flex align-items-center">
+                <label for="footerSettingsLanguage_mobile" class="me-2 text-secondary">Language</label>
+                <select id="footerSettingsLanguage_mobile" class="form-select form-select-sm bg-transparent border-0"
+                        aria-label="Default select example" name="store-language">
+                    <option class="footer-select__option" selected>United Kingdom | English</option>
+                    <option class="footer-select__option" value="1">United States | English</option>
+                    <option class="footer-select__option" value="2">German</option>
+                    <option class="footer-select__option" value="3">French</option>
+                    <option class="footer-select__option" value="4">Swedish</option>
+                </select>
+            </div>
 
-
-
+            <div class="container d-flex align-items-center">
+                <label for="footerSettingsCurrency_mobile" class="me-2 text-secondary">Currency</label>
+                <select id="footerSettingsCurrency_mobile" class="form-select form-select-sm bg-transparent border-0"
+                        aria-label="Default select example" name="store-language">
+                    <option selected>$ USD</option>
+                    <option value="1">£ GBP</option>
+                    <option value="2">€ EURO</option>
+                </select>
+            </div>
 
             <ul class="container social-links list-unstyled d-flex flex-wrap mb-0">
                 <li>
@@ -386,14 +440,19 @@
                     </a>
                 </li>
             </ul>
-
+            <!--   <select class="form-select form-select-sm bg-transparent color-white" name="store-language">
+                   <option value="english" selected>English</option>
+                   <option value="german">German</option>
+                   <option value="french">French</option>
+                   <option value="swedish">Swedish</option>
+               </select>-->
 
         </div>
     </div>
     <div class="header-desk header-desk_type_1">
         <div class="logo">
             <a href="index.html">
-                <img src="/images/logo.png" alt="JuteGlo" class="logo__image d-block"/>
+                <img src="/images/logo.png" alt="Uomo" class="logo__image d-block"/>
             </a>
         </div><!-- /.logo -->
 
@@ -403,15 +462,22 @@
                     <a href="index.html" class="navigation__link">Home</a>
                 </li>
                 <li class="navigation__item">
-                    <a href="about.html" class="navigation__link">About Us</a>
+                    <a href="#about" class="navigation__link">About Us</a>
 
                 </li>
                 <li class="navigation__item">
-                    <a href="products.html" class="navigation__link">Products</a>
-
+                    <a href="#product" class="navigation__link">Products</a>
+                    <ul class="default-menu list-unstyled">
+                        <li class="sub-menu__item"><a href="#collections-tab-2" class="menu-link menu-link_us-s">Promotional Jute
+                            Bags</a></li>
+                        <li class="sub-menu__item"><a href="#collections-tab-3" class="menu-link menu-link_us-s">Bangladeshi Jute
+                            Bags</a></li>
+                        <li class="sub-menu__item"><a href="#collections-tab-4" class="menu-link menu-link_us-s">Jute Fabrics</a></li>
+                        <li class="sub-menu__item"><a href="#product" class="menu-link menu-link_us-s">Jute Yarn</a></li>
+                    </ul><!-- /.box-menu -->
                 </li>
                 <li class="navigation__item">
-                    <a href="faq.html" class="navigation__link">Faq</a>
+                    <a href="#faq" class="navigation__link">Faq</a>
 
                 </li>
                 <li class="navigation__item">
@@ -1718,7 +1784,7 @@
             <div class="accordion-item">
                 <h5 class="accordion-header" id="faq-accordion-heading-1">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="faq.html-accordion-collapse-1" aria-expanded="true"
+                            data-bs-target="#faq-accordion-collapse-1" aria-expanded="true"
                             aria-controls="faq-accordion-collapse-1">
                         Bring of had which their whose you're it own?
                         <svg class="accordion-button__icon" viewBox="0 0 14 14">
@@ -1730,7 +1796,7 @@
                     </button>
                 </h5>
                 <div id="faq-accordion-collapse-1" class="accordion-collapse collapse show"
-                     aria-labelledby="faq-accordion-heading-1" data-bs-parent="faq.html_accordion">
+                     aria-labelledby="faq-accordion-heading-1" data-bs-parent="#faq_accordion">
                     <div class="accordion-body">
                         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
@@ -1743,7 +1809,7 @@
             <div class="accordion-item">
                 <h5 class="accordion-header" id="faq-accordion-heading-2">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="faq.html-accordion-collapse-2" aria-expanded="false"
+                            data-bs-target="#faq-accordion-collapse-2" aria-expanded="false"
                             aria-controls="faq-accordion-collapse-2">
                         Over shall air can't subdue fly divide him?
                         <svg class="accordion-button__icon" viewBox="0 0 14 14">
@@ -1755,7 +1821,7 @@
                     </button>
                 </h5>
                 <div id="faq-accordion-collapse-2" class="accordion-collapse collapse"
-                     aria-labelledby="faq-accordion-heading-2" data-bs-parent="faq.html_accordion">
+                     aria-labelledby="faq-accordion-heading-2" data-bs-parent="#faq_accordion">
                     <div class="accordion-body">
                         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
@@ -1768,7 +1834,7 @@
             <div class="accordion-item">
                 <h5 class="accordion-header" id="faq-accordion-heading-3">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="faq.html-accordion-collapse-3" aria-expanded="false"
+                            data-bs-target="#faq-accordion-collapse-3" aria-expanded="false"
                             aria-controls="faq-accordion-collapse-3">
                         Waters one you'll creeping?
                         <svg class="accordion-button__icon" viewBox="0 0 14 14">
@@ -1780,7 +1846,7 @@
                     </button>
                 </h5>
                 <div id="faq-accordion-collapse-3" class="accordion-collapse collapse"
-                     aria-labelledby="faq-accordion-heading-3" data-bs-parent="faq.html_accordion">
+                     aria-labelledby="faq-accordion-heading-3" data-bs-parent="#faq_accordion">
                     <div class="accordion-body">
                         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
@@ -1870,7 +1936,7 @@
             <div class="footer-column footer-store-info col-12 mb-4 mb-lg-0">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="/images/logo.png" alt="JuteGlo" class="logo__image d-block"/>
+                        <img src="/images/logo.png" alt="Uomo" class="logo__image d-block"/>
                     </a>
                 </div><!-- /.logo -->
                 <p class="footer-address" style="text-align: justify">
@@ -1927,9 +1993,9 @@
                 <ul class="sub-menu__list list-unstyled">
                     <li class="sub-menu__item"><a href="index.html" class="menu-link menu-link_us-s">Home</a>
                     </li>
-                    <li class="sub-menu__item"><a href="about.html" class="menu-link menu-link_us-s">About Us</a></li>
+                    <li class="sub-menu__item"><a href="#about" class="menu-link menu-link_us-s">About Us</a></li>
 
-                    <li class="sub-menu__item"><a href="faq.html" class="menu-link menu-link_us-s">Faq</a>
+                    <li class="sub-menu__item"><a href="#faq" class="menu-link menu-link_us-s">Faq</a>
                     </li>
                     <li class="sub-menu__item"><a href="contact.html" class="menu-link menu-link_us-s">Contact Us</a>
                     </li>
@@ -1954,7 +2020,7 @@
 
     <div class="footer-bottom container">
         <div class="d-block d-md-flex align-items-center">
-            <span class="footer-copyright me-auto">©2023 JuteGlo . Designed by Frogbid</span>
+            <span class="footer-copyright me-auto">©2023 Uomo</span>
             <div class="footer-settings d-block d-md-flex align-items-center">
                 <div class="d-flex align-items-center">
                     <label for="footerSettingsLanguage" class="me-2 text-secondary">Language</label>
@@ -2013,14 +2079,14 @@
                                id="flexCheckDefault">
                         <label class="form-check-label text-secondary" for="flexCheckDefault">Remember me</label>
                     </div>
-                    <a href="" class="btn-text ms-auto">Lost password?</a>
+                    <a href="./reset_password.html" class="btn-text ms-auto">Lost password?</a>
                 </div>
 
                 <button class="btn btn-primary w-100 text-uppercase" type="submit">Log In</button>
 
                 <div class="customer-option mt-4 text-center">
                     <span class="text-secondary">No account yet?</span>
-                    <a href="" class="btn-text js-show-register">Create Account</a>
+                    <a href="./login_register.html#register-tab" class="btn-text js-show-register">Create Account</a>
                 </div>
             </form>
         </div><!-- /.customer__login -->
@@ -2156,8 +2222,8 @@
             <h6 class="fs-base fw-medium">SUBTOTAL:</h6>
             <span class="cart-subtotal fw-medium">$</span>
         </div><!-- /.d-flex justify-content-between -->
-        <a href="" class="btn btn-light mt-3 d-block">View Cart</a>
-        <a href="" class="btn btn-primary mt-3 d-block">Checkout</a>
+        <a href="./shop_cart.html" class="btn btn-light mt-3 d-block">View Cart</a>
+        <a href="./shop_checkout.html" class="btn btn-primary mt-3 d-block">Checkout</a>
     </div><!-- /.aside-content -->
 </div><!-- /.aside -->
 
@@ -2235,7 +2301,7 @@
                                             <a class="nav-link nav-link_rline" href="#"><span class="rline-content">JOIN LIFE</span></a>
                                         </li>
                                         <li class="nav-item position-relative" role="presentation">
-                                            <a class="nav-link nav-link_rline" href="#"><span class="rline-content">#JuteGloSTYLE</span></a>
+                                            <a class="nav-link nav-link_rline" href="#"><span class="rline-content">#UOMOSTYLE</span></a>
                                         </li>
                                     </ul>
 
@@ -2576,7 +2642,7 @@
                                     <div class="field grow mr-4">
                                         <label class="field__label sr-only" for="url">Link</label>
                                         <input type="text" class="field__input w-full" id="url"
-                                               value="https://JuteGlo-crystal.myshopify.com/blogs/news/go-to-wellness-tips-for-mental-health"
+                                               value="https://uomo-crystal.myshopify.com/blogs/news/go-to-wellness-tips-for-mental-health"
                                                placeholder="Link" onclick="this.select();" readonly="">
                                     </div>
                                     <button class="share-button__copy no-js-hidden">
